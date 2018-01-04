@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Service1.AuctionItem>
+
+<h2>Auction House item list:</h2>
+<hr />
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.currentBid.bidCustomName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.currentBid.bidCustomPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.currentBid.bidPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.currentBid.bidTimestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.itemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.itemNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratingPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.currentBid.bidCustomName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.currentBid.bidCustomPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.currentBid.bidPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.currentBid.bidTimestamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ratingPrice)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Select", "Details", new { id = item.itemNumber })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>
+

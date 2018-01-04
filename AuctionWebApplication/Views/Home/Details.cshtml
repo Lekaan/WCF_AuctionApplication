@@ -1,0 +1,67 @@
+﻿@model Service1.AuctionItem
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+@using (Html.BeginForm("Details", "Home", FormMethod.Post))
+{
+    <div>
+        <h4>AuctionItem</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.currentBid.bidCustomName)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.currentBid.bidCustomName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.currentBid.bidCustomPhone)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.currentBid.bidCustomPhone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.currentBid.bidPrice)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.currentBid.bidPrice)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.currentBid.bidTimestamp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.currentBid.bidTimestamp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.itemDescription)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.itemDescription)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.itemNumber)
+                @Html.HiddenFor(model => model.itemNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.itemNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ratingPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ratingPrice)
+
+            </dd>
+        </dl>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" id="Save" value="Save" class="btn btn-default" onclick="validateForm()" />
+        </div>
+    </div>
+
+}
+<div>@Html.Raw(ViewBag.Response)</div>
